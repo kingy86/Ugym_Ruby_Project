@@ -12,6 +12,7 @@ session1 = Session.new({
   'capacity' => 5
   })
 session1.save()
+session1.delete()
 
 session2 = Session.new({
   'name' => 'Body Combat',
