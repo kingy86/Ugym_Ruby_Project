@@ -12,8 +12,7 @@ session1 = Session.new({
   'capacity' => 5
   })
 session1.save()
-session1.name = "Spin Class"
-session1.update
+
 
 session2 = Session.new({
   'name' => 'Body Combat',
@@ -51,6 +50,8 @@ member2 = Member.new({
   'fitness_level' => 2
   })
 member2.save()
+
+
 
 member3 = Member.new({
   'first_name' => 'Jacob',
