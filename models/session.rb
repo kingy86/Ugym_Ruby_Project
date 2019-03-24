@@ -9,7 +9,7 @@ class Session
     @id = options['id'] if options['id']
     @name = options['name']
     @intensity = options['intensity'].to_i
-    @capacity = options['capacity'].to_i
+    @capacity = options['capacity']
   end
 
   def save()
@@ -26,6 +26,12 @@ class Session
   def delete
     sql = "DELETE FROM sessions WHERE id = $1"
     values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def update
+    sql = "UPDATE sessions SET (name, intensity, capacity) = ($1, $2, $3) WHERE id = $4"
+    values = [@name, @intensity, @capacity, @id]
     SqlRunner.run(sql, values)
   end
 
