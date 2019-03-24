@@ -18,4 +18,9 @@ class Session
     @id = SqlRunner.run(sql, values).first['id']
   end
 
+  def self.delete_all
+    sql = "DELETE FROM sessions"
+    SqlRunner.run(sql)
+  end
+
 end

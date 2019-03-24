@@ -1,6 +1,11 @@
 require_relative('../models/member')
 require_relative('../models/session')
 
+
+Session.delete_all()
+Member.delete_all()
+
+
 session1 = Session.new({
   'name' => 'Yoga',
   'intensity' => 3,
