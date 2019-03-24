@@ -12,4 +12,10 @@ class Member
     @fitness_level = options['fitness_level'].to_i
   end
 
+  def save()
+    sql = "INSERT INTO members (first_name, last_name, age, fitness_level) VALUES ($1, $2, $3, $4) RETURNING *"
+    values = [@first_name, @last_name, @age, @fitness_level]
+    @id = SqlRunner.run(sql, values).first['id']
+  end
+
 end
