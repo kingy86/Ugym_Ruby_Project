@@ -23,6 +23,13 @@ class Session
     SqlRunner.run(sql)
   end
 
+  def self.find
+    sql = "SELECT * FROM sessions WHERE id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values).first
+    return Session.new(result)
+  end
+
   def delete
     sql = "DELETE FROM sessions WHERE id = $1"
     values = [@id]
