@@ -1,7 +1,7 @@
 require('sinatra')
 require('sinatra/contrib/all')
-require_relative('./models/member.rb')
-require_relative('./models/session.rb')
+require_relative('./controllers/member_controller.rb')
+require_relative('./controllers/session_controller.rb')
 also_reload('./models/*')
 
 get '/' do
