@@ -42,4 +42,17 @@ class Session
     SqlRunner.run(sql, values)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM sessions WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    return Session.new(result)
+  end
+
+ def self.find_all
+   sql = "SELECT * FROM sessions"
+   session_information = SqlRunner.run(sql)
+   return session_information.map{|session| Session.new(session)}
+ end
+
 end
