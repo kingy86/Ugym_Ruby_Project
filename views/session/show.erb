@@ -1,0 +1,12 @@
+<table>
+  <thead>Name<thead>
+  <thead>Intensity<thead>
+  <thead>Capacity<thead>
+  <%@session.each do |session|%>
+  <tr>
+    <td> <%= session.name %> </td>
+    <td> <%= session.intensity %> </td>
+    <td> <%= session.capacity %></td>
+  </tr>
+  <%end%>
+</table>
