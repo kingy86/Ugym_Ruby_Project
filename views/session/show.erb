@@ -1,0 +1,14 @@
+<div class="session_section">
+  <h1>Name : <%= @session.name %> </h1>
+  <h3>Intensity : <%= @session.intensity %> </h3>
+  <h3>Capacity : <%= @session.capacity %> </h3>
+
+  <a href="/sessions/<%= @session.id %>/edit">
+    <button type="button" name="button">Edit</button>
+  </a>
+
+  <form action="/sessions/<%= @session.id %>/delete" method="post">
+    <input type="submit" name="button" value="Delete">
+  </form>
+
+</div>
