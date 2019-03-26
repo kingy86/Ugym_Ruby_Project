@@ -1,4 +1,4 @@
-<form class="member_edit" action="/member/<%= @member.id %>" method="post">
+<form class="member_edit" action="/members/<%= @member.id %>" method="post">
   <label>First Name :</label>
   <input type="text" name="first_name" value="<%= @member.first_name %>"/>
 
@@ -10,6 +10,14 @@
 
   <label>Fitness Level 1 - 5 :</label>
   <input type="fitness_level" name="fitness_level" value="<%= @member.fitness_level %>"/>
+
+  <label for="session_id">Session : </label>
+
+  <select class="session_id" name="session_option">
+    <% @sessions.each do |session| %>
+      <option value= <%= session.id %> > <%= session.name %> </option>
+    <%end%>
+  </select>
 
   <input type="submit" value="Update">
 

@@ -4,7 +4,10 @@
   <h3>Age : <%= @member.age %> </h3>
   <h3>Session : <%= @member.session_id %> </h3>
 
-  <a href="/members/<%=@member.id%>/edit">Edit</a>
+  <a href="/members/<%=@member.id%>/edit"><button type="button" name="button">Edit</button></a>
+  <form action="/members/<%=@member.id%>/delete" method="post">
+  <input type="submit" name="button" value="Delete">
+  </form>
 
 
 

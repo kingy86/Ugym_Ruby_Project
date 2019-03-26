@@ -24,7 +24,21 @@ get '/members/:id' do
   erb(:"member/show")
 end
 
-# get '/member/:id/update' do
-#   @member = Member.find(params[:id])
-#   erb(:"member/edit")
-# end
+get '/members/:id/edit' do
+  @sessions = Session.find_all
+  @member = Member.find(params['id'])
+  erb(:"member/edit")
+end
+
+post '/members/:id' do
+  member = Member.new(params)
+  member.update
+
+  redirect to "/members/#{params['id']}"
+end
+
+post '/members/:id/delete' do
+  member = Member.find(params['id'])
+  member.delete
+  redirect to '/members'
+end

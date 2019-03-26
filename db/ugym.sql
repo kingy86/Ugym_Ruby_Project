@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS register;
-DROP TABLE IF EXISTS sessions;
-DROP TABLE IF EXISTS members;
+DROP TABLE register;
+DROP TABLE sessions;
+DROP TABLE members;
 
 
 CREATE TABLE sessions(
