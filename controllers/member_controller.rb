@@ -6,7 +6,7 @@ also_reload('../models/*')
 
 get '/members' do
   @member = Member.find_all()
-  erb(:"member/show")
+  erb(:"member/index")
 end
 
 get '/members/new' do
@@ -17,6 +17,11 @@ end
 post '/members' do
   @member = Member.new(params).save
   redirect to "/members"
+end
+
+get '/members/:id' do
+  @member = Member.find(params['id'])
+  erb(:"member/show")
 end
 
 # get '/member/:id/update' do

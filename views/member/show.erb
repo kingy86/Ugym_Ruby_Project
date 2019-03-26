@@ -1,16 +1,11 @@
-<table>
-  <thead>First Name</thead>
-  <thead>Last Name</thead>
-  <thead>Age</thead>
-  <thead>Fitness Level</thead>
-  <thead>Session</thead>
-    <% @member.each do |member|%>
-    <tr>
-      <td><%= member.first_name %></td>
-      <td><%= member.last_name %></td>
-      <td><%= member.age %></td>
-      <td><%= member.fitness_level %></td>
-      <td><%= member.session_id %></td>
-    </tr>
-    <%end%>
-</table>
+<div class="student_id">
+  <h1>First Name : <%= @member.first_name %></h1>
+  <h1>Last Name : <%= @member.last_name %></h1>
+  <h3>Age : <%= @member.age %> </h3>
+  <h3>Session : <%= @member.session_id %> </h3>
+
+  <a href="/members/<%=@member.id%>/edit">Edit</a>
+
+
+
+</div>

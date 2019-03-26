@@ -1,0 +1,16 @@
+<table>
+  <thead>First Name</thead>
+  <thead>Last Name</thead>
+  <thead>Age</thead>
+  <thead>Fitness Level</thead>
+  <thead>Session</thead>
+    <% @member.each do |member|%>
+    <tr>
+      <td><%= member.first_name %></td>
+      <td><%= member.last_name %></td>
+      <td><%= member.age %></td>
+      <td><%= member.fitness_level %></td>
+      <td><%= member.session_id %></td>
+    </tr>
+    <%end%>
+</table>

@@ -16,8 +16,8 @@ class Member
 
 
   def save()
-    sql = "INSERT INTO members (first_name, last_name, age, fitness_level) VALUES ($1, $2, $3, $4) RETURNING *"
-    values = [@first_name, @last_name, @age, @fitness_level]
+    sql = "INSERT INTO members (first_name, last_name, age, fitness_level, session_id) VALUES ($1, $2, $3, $4, $5) RETURNING *"
+    values = [@first_name, @last_name, @age, @fitness_level, @session_id]
     @id = SqlRunner.run(sql, values).first['id']
   end
 
