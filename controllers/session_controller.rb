@@ -27,3 +27,17 @@ get '/sessions/:id/edit' do
 
   erb(:'session/edit')
 end
+
+post '/sessions/:id' do
+  session = Session.new(params)
+  session.update
+
+  redirect to "/sessions/#{params['id']}"
+end
+
+post '/sessions/:id/delete' do
+  session = Session.find(params['id'])
+  session.delete
+
+  redirect to "/sessions"
+end
