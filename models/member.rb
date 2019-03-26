@@ -2,7 +2,8 @@ require_relative('../db/sql_runner.rb')
 
 class Member
 
-  attr_accessor :first_name, :last_name, :age, :fitness_level
+  attr_reader :id
+  attr_accessor :first_name, :last_name, :age, :fitness_level, :session_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id'].to_i
@@ -10,6 +11,7 @@ class Member
     @last_name = options['last_name']
     @age = options['age'].to_i
     @fitness_level = options['fitness_level'].to_i
+    @session_id = options['session_id'].to_i
   end
 
 
@@ -43,7 +45,7 @@ class Member
 
   def self.find_all
     sql = "SELECT * FROM members"
-    member_information = SqlRunner(sql)
+    member_information = SqlRunner.run(sql)
     return member_information.map{|member| Member.new(member)}
   end
 
