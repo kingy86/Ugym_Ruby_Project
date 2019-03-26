@@ -15,11 +15,6 @@ CREATE TABLE members(
   first_name VARCHAR(255),
   last_name VARCHAR(255),
   age INT4,
-  fitness_level INT4
-);
-
-CREATE TABLE register(
-  id SERIAL8 PRIMARY KEY,
-  member_id INT4 REFERENCES members(id),
+  fitness_level INT4,
   session_id INT4 REFERENCES sessions(id)
 );
