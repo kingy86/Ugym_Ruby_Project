@@ -99,14 +99,23 @@ td a{
 .ugymform label{
   text-align: center;
   display: block;
+  margin-bottom: 5px;
 }
 .ugymform input[type=submit]{
-  clear: left;
   font-size: 16px;
   margin: 0, 5px;
   color: white;
   background: transparent;
-  border: 5px solid `white`;
+  border: 1px solid white;
   padding: 5px;
   border-radius: 5px;
+  margin-top: 10px;
+}
+.ugymform select{
+  font-size: 16px;
+  color: white;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
+
 }
