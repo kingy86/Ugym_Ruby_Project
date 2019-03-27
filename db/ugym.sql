@@ -1,4 +1,3 @@
-DROP TABLE register;
 DROP TABLE sessions;
 DROP TABLE members;
 
@@ -16,5 +15,5 @@ CREATE TABLE members(
   last_name VARCHAR(255),
   age INT4,
   fitness_level INT4,
-  session_id INT4 REFERENCES sessions(id)
+  session_id INT4 REFERENCES sessions(id) ON DELETE SET NULL
 );
