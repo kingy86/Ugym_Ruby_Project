@@ -1,7 +1,9 @@
-<table>
-  <thead>Name<thead>
-  <thead>Intensity<thead>
-  <thead>Capacity<thead>
+<table class="sessiontable">
+  <tr>
+    <th span="2">Name<th>
+    <th span="2">Intensity<th>
+    <th>Capacity<th>
+  </tr>
   <%@session.each do |session|%>
   <tr>
     <td> <%= session.name %> </td>
