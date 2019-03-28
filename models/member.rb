@@ -2,7 +2,7 @@ require_relative('../db/sql_runner.rb')
 
 class Member
 
-  attr_reader :id
+  attr_reader :id, :session_name
   attr_accessor :first_name, :last_name, :age, :fitness_level, :session_id
 
   def initialize(options)
@@ -12,6 +12,7 @@ class Member
     @age = options['age'].to_i
     @fitness_level = options['fitness_level'].to_i
     @session_id = options['session_id'].to_i
+    @session_name = options['session_name']
   end
 
 
@@ -37,7 +38,12 @@ class Member
   end
 
   def self.find(id)
-    sql = "SELECT * FROM members WHERE id = $1"
+    sql = "SELECT members.*,
+            sessions.name as session_name
+            FROM members
+            INNER JOIN sessions
+            ON members.session_id = sessions.id
+            WHERE members.id = $1"
     values = [id]
     result = SqlRunner.run(sql, values).first
     return Member.new(result)

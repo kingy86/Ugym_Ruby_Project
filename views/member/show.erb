@@ -2,7 +2,7 @@
   <h1>First Name : <%= @member.first_name %></h1>
   <h1>Last Name : <%= @member.last_name %></h1>
   <h3>Age : <%= @member.age %> </h3>
-  <h3>Session : <%= @member.session_id %> </h3>
+  <h3>Session : <%= @member.session_name %> </h3>
 
   <a href="/members/<%=@member.id%>/edit"><button type="button" name="button">Edit</button></a>
   <form action="/members/<%=@member.id%>/delete" method="post">
