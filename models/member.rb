@@ -28,7 +28,9 @@ class Member
   end
 
   def update
-    sql = "UPDATE member SET (first_name, last_name, age, fitness_level) = ($1, $2, $3, $4) WHERE id = $5"
+    sql = "UPDATE members SET (first_name, last_name, age, fitness_level, session_id) = ($1, $2, $3, $4, $5) WHERE id = $6"
+    values = [@first_name, @last_name, @age, @fitness_level, @session_id, @id]
+    SqlRunner.run(sql, values)
   end
 
   def delete
@@ -50,7 +52,11 @@ class Member
   end
 
   def self.find_all
-    sql = "SELECT * FROM members"
+    sql = "SELECT members.*,
+            sessions.name as session_name
+            FROM members
+            INNER JOIN sessions
+            ON members.session_id = sessions.id"
     member_information = SqlRunner.run(sql)
     return member_information.map{|member| Member.new(member)}
   end

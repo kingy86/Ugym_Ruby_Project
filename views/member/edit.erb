@@ -13,7 +13,7 @@
 
   <label for="session_id">Session : </label>
 
-  <select class="session_id" name="session_option">
+  <select class="session_id" name="session_id">
     <% @sessions.each do |session| %>
       <option value= <%= session.id %> > <%= session.name %> </option>
     <%end%>
